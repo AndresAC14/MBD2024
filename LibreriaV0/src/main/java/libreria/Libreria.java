@@ -43,9 +43,9 @@ public class Libreria {
     private int posicionLibro(String aut, String tit){
         int i = 0;
 
-        while(i < numLibros &&
-                (!libros[i].getAutor().equalsIgnoreCase(aut))
-                 || !libros[i].getTitulo().equalsIgnoreCase(tit)){
+        while((i < numLibros)
+                && !(libros[i].getAutor().equalsIgnoreCase(aut)
+                || libros[i].getTitulo().equalsIgnoreCase(tit))){
             i++;
         }
 
@@ -64,8 +64,8 @@ public class Libreria {
         return (pos >= 0) ? libros[pos].getPrecioBase() : 0;
     }
 
-    public void remLibro(Libro l){
-        int pos = posicionLibro(l.getAutor(), l.getTitulo());
+    public void remLibro(String autor, String titulo){
+        int pos = posicionLibro(autor, titulo);
 
         if(pos >= 0){
             remLibro(pos);
@@ -76,6 +76,25 @@ public class Libreria {
         for(int i = pos; i < numLibros - 1; i++){
             libros[i] = libros[i+1];
         }
-        libros[numLibros - 1] = null;
+        numLibros--;
+        libros[numLibros] = null;
+    }
+
+    @Override
+    public String toString(){
+        String salida = "[";
+        for (int i = 0; i < numLibros; i++){
+            salida += libros[i] + ",\n";
+            if(i == numLibros-1){
+                salida += libros[numLibros-1] + "]";
+            }
+        }
+        return salida;
+    }
+
+    public double getPrecioFinal(String autor, String titulo) {
+        int pos = posicionLibro(autor, titulo);
+
+        return (pos >= 0) ? libros[pos].getPrecioFinal() : -1;
     }
 }

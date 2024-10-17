@@ -1,6 +1,7 @@
 package jarras;
 
 /// @author Andrés Amo Caballero
+/// @version 1.0
 
 public class Jarra {
     private final int capacidad;
@@ -9,7 +10,7 @@ public class Jarra {
     /**
      * Crea una nueva jarra con capacidad dada y contenido 0
      * @param capacidad maximo de contenido que cabe en la jarra
-     * @throws IllegalArgumentException cuando la capacidad es menor o igual a 0
+     * @throws IllegalArgumentException cuando la capacidad es menor que 0
      */
     public Jarra(int capacidad){
         if(capacidad < 0) throw new IllegalArgumentException("Capacidad no admitida");
@@ -48,8 +49,8 @@ public class Jarra {
     }
 
     /**
-     * Llena la jarra `this` con el contenido de la jarra pasada por argumento
-     * bien hasta que `this` se llena o que la otra se quede sin contenido
+     * Llena la jarra `this` con el contenido de la jarra pasada por parámetro.
+     * Bien hasta que `this` se llena o hasta que la otra se quede sin contenido
      * @param j Jarra que se vacía en `this`
      */
     public void llenaDesde(Jarra j){

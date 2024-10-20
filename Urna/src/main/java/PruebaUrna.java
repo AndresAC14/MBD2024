@@ -14,7 +14,7 @@ public class PruebaUrna {
             Urna.ColorBola bola1 = urna.extraerBola();
             Urna.ColorBola bola2 = urna.extraerBola();
 
-            System.out.println("Extracción: " + urna);
+            //System.out.println("Extracción: " + urna);
 
             if(bola1 == bola2){
                 urna.ponerBlanca();
@@ -22,11 +22,22 @@ public class PruebaUrna {
                 urna.ponerNegra();
             }
 
-            System.out.println("Adición: " + urna);
+            //System.out.println("Adición: " + urna);
         }
 
         Urna.ColorBola ultimaBola = urna.extraerBola();
         System.out.println("La última bola es: " + ultimaBola);
+
+        /**
+         * Cuando hay más bolas negras que blancas, la última bola suele ser blanca.
+         *
+         * Cuando hay más bolas blancas que negras, la útlima bola suele ser negra.
+         *
+         * Cuando hay mismo número de bolas, si el número de cada una es
+         *  par (ej. 4 blancas y 4 negras), la última bola suele ser blanca.
+         *  Y en caso de que el número sea impar (ej. 5 blancas y 5 negras),
+         *  la última bola suele ser negra.
+         */
 
     }
 }

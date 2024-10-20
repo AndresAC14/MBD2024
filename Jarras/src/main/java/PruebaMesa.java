@@ -1,4 +1,6 @@
 import jarras.*;
+import static jarras.Mesa.*;
+import static jarras.Mesa.Posicion.*;
 
 public class PruebaMesa {
     public static void main(String[] args) {
@@ -7,26 +9,26 @@ public class PruebaMesa {
 
         int i = 1;
 
-        while(m.getContenido(Mesa.Posicion.Izquierda) != 1 && m.getContenido(Mesa.Posicion.Derecha) != 1){
+        while(m.getContenido(Izquierda) != 1 && m.getContenido(Derecha) != 1){
 
             System.out.println("Iteracion: " + i);
 
-            m.llena(Mesa.Posicion.Izquierda);
+            m.llena(Izquierda);
 
             System.out.println(m);
             System.out.println("######################");
 
-            m.llenaDesde(Mesa.Posicion.Izquierda);
+            m.llenaDesde(Izquierda);
 
             System.out.println(m);
             System.out.println("######################");
 
-            m.vacia(Mesa.Posicion.Derecha);
+            m.vacia(Derecha);
 
             System.out.println(m);
             System.out.println("######################");
 
-            m.llenaDesde(Mesa.Posicion.Izquierda);
+            m.llenaDesde(Izquierda);
 
             System.out.println(m);
             System.out.println("######################");

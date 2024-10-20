@@ -5,7 +5,7 @@ package jarras;
 
 public class Mesa {
 
-    public enum Posicion {
+    public static enum Posicion {
         Izquierda,
         Derecha
     }

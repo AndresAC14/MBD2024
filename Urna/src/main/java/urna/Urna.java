@@ -16,11 +16,13 @@ public class Urna {
     public static enum ColorBola{
         Blanca,
         Negra
+
     }
+
+    private static Random alea;
 
     private int blancas;
     private int negras;
-    private Random alea;
 
     /**
      * Construye una nueva Urna con el número de bolas que se le indican por parámetro.

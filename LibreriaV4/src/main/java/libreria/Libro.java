@@ -1,4 +1,7 @@
 package libreria;
+
+import java.util.Objects;
+
 /// @author Fco. Gutierrez
 /// @version 1.0
 ///
@@ -40,5 +43,17 @@ public class Libro {
         return "(" + autor + ";" + titulo + ";" +
                 precioBase + ";" + IVA + ";" +
                 getPrecioFinal()+")";
+    }
+
+    @Override
+    public boolean equals(Object o){
+        return (o instanceof Libro l)
+                && (l.getAutor().equalsIgnoreCase(autor)
+                && (l.getTitulo().equalsIgnoreCase(titulo)));
+    }
+
+    @Override
+    public int hashCode(){
+        return Objects.hash(autor.toLowerCase(), titulo.toLowerCase());
     }
 }

@@ -27,23 +27,11 @@ public class Libreria {
     /// - Si no está se añade
     /// @param libro a agregar
     protected void addLibro(Libro libro) {
-        int pos = posicionLibro(libro.getAutor(), libro.getTitulo());
+        int pos = libros.indexOf(libro);
         if (pos < 0) // El libro no está
             libros.add(libro);
         else // el libro está
             libros.set(pos,libro);
-    }
-
-    /// Localiza la posición de un libro con `autor` y `titulo` dado
-    /// en el array de libros.
-    /// @return la posición del libro en el array. -1 si no está
-    private int posicionLibro(String autor, String titulo) {
-        int pos = 0;
-        while (pos < libros.size() &&
-                (!libros.get(pos).getTitulo().equalsIgnoreCase(titulo)
-                || !libros.get(pos).getAutor().equalsIgnoreCase(autor)))
-            pos++;
-        return (pos == libros.size())? -1 : pos;
     }
 
     /// Calcula el precio base de un libro conocido `autor` y `título`
@@ -51,8 +39,8 @@ public class Libreria {
     /// @param titulo del libro
     /// @return el precio base del libro
     public double getPrecioBase(String autor, String titulo) {
-        int pos = posicionLibro(autor, titulo);
-        return (pos < 0)? 0 : libros.get(pos).getPrecioBase();
+        int pos = libros.indexOf(new Libro(autor, titulo, 0));
+        return (pos < 0) ? 0 : libros.get(pos).getPrecioBase();
     }
 
     /// Calcula el precio final de un libro conocido `autor` y `título`
@@ -60,7 +48,7 @@ public class Libreria {
     /// @param titulo del libro
     /// @return el precio final del libro
     public double getPrecioFinal(String autor, String titulo) {
-        int pos = posicionLibro(autor, titulo);
+        int pos = libros.indexOf(new Libro(autor, titulo, 0));
         return (pos < 0)? 0 : libros.get(pos).getPrecioFinal();
     }
 
@@ -70,7 +58,7 @@ public class Libreria {
     /// @param autor  del libro
     /// @param titulo del libro
     public void remLibro(String autor, String titulo) {
-        int pos = posicionLibro(autor, titulo);
+        int pos = libros.indexOf(new Libro(autor, titulo, 0));
         if (pos >= 0) // el libro está
             libros.remove(pos);
     }

@@ -1,7 +1,9 @@
 FROM amazoncorretto:23-alpine-jdk
 
-COPY Main.class /app/
+COPY Main.java /app/
 
 WORKDIR /app/
+
+RUN javac Main.java
 
 ENTRYPOINT ["java", "Main"]

@@ -12,8 +12,8 @@ public class MuestraNumLineaFile {
     public static void main(String[] args) {
         // leer el fichero de palabras y mostrarlas en pantalla línea fst línea
         try {
+            int numLinea = 1;
             for (String linea : Files.readAllLines(Path.of(args[0]))) {
-                int numLinea = 1;
                 System.out.println(numLinea + "\t:" + linea);
                 numLinea++;
             }

@@ -16,14 +16,35 @@ public class Wordle {
         this.secreta = comienza();
     }
 
-    public Respuesta intento(String movimiento){
+    public Respuesta intento(String palabra){
+        String mayus = palabra.toUpperCase();
+        if(!validas.contains(mayus)){
+            return new Fallo("No existe la palabra: " + mayus);
+        }else{
+            String mascara = secreta;
+            String resultado = "NNNNN";
 
+            for(int pos = 0; pos < 5; pos++){
+                char c1 = palabra.charAt(pos);
+                char c2 = mascara.charAt(pos);
+
+                if(c1 == c2){
+                    mascara = mascara.substring(0, pos) + ' ' + mascara.substring(pos+1);
+                    resultado = resultado.substring(0, pos) + ' ' + resultado.substring(pos+1);
+                }
+            }
+
+
+
+            Movimiento mov = new Movimiento(mayus, resultado);
+        }
     }
 
     public void leePalabras(String fichero) throws IOException {
 
         for(String linea: Files.readAllLines(Path.of(fichero))){
             try(Scanner sc = new Scanner(linea)){
+                sc.useDelimiter(" ");
                 while (sc.hasNext()){
                     validas.add(sc.next());
                 }

@@ -1,4 +1,3 @@
 package wordle;
 
-public record Fallo(String mensaje) {
-}
+public record Fallo(String mensaje) implements Respuesta{}

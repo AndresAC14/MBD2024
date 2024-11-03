@@ -1,4 +1,3 @@
 package wordle;
 
-public interface Respuesta {
-}
+public sealed interface Respuesta permits Fallo, Movimiento {}

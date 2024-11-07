@@ -5,6 +5,8 @@ import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
 
+import static java.util.Collections.synchronizedList;
+
 public class Posiciones{
 	public static void main(String[] args) {
 		Map<String,List<Integer>> mPos = new TreeMap<>();

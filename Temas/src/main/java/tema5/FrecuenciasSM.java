@@ -16,7 +16,7 @@ public class FrecuenciasSM {
 		}
 		System.out.println(mFrecs);
 		// Muestra frecs. de subrango iterando sobre conj. ordenado de entradas
-		Map<String, Integer> sm = mFrecs.subMap("e", "l");
+		Map<String, Integer> sm = mFrecs.subMap("a", "j");
 		for (Map.Entry<String, Integer> par : sm.entrySet()) {
 			String key = par.getKey();
 			int val = par.getValue();
